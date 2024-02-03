@@ -1,0 +1,89 @@
+@import url('main-components.css');
+
+.formContainer {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  
+  min-width: 215px;
+  
+  padding: 20px;
+
+  background-color: rgba( 0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+
+  border-radius: 10px;
+
+  /* box-shadow: 0px 0px 20px 0px darkgray; */
+}
+
+.formContainer form {
+  display: flex;
+  flex-flow: column;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.fullnameContainer, .emailUsernameContainer, .passwordContainer {
+  display: flex;
+  flex-flow: row;
+
+  margin: 0;
+  padding: 0;
+}
+
+.fullnameContainer .inputContainer, .emailUsernameContainer .inputContainer, .passwordContainer .inputContainer {
+  margin: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.fnameContainer input, .lnameContainer input {
+  margin-bottom: 10px;
+}
+
+.inputContainer {
+  margin: 0;
+  padding: 0;
+}
+
+.inputContainer input {
+  margin-bottom: 10px;
+}
+
+.inputContainer p {
+  margin: 0;
+}
+
+.formContainer #registerBtn {
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 5px;
+  color: white;
+
+  font-size: 1.2rem;
+
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 20px auto;
+}
+
+.loginRedirect * {
+  margin: 0;
+  padding: 0;
+
+  text-align: center;
+}
+
+.loginRedirect a {
+  color: #FF9A00;
+}
+
+@media (max-width: 768px) {
+  .fullnameContainer, .emailUsernameContainer, .passwordContainer {
+    flex-flow: column;
+  }
+}

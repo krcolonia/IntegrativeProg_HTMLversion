@@ -1,0 +1,234 @@
+@font-face {
+  font-family: 'bender';
+  src: url('../fonts/bender.woff2') format('woff2'),
+    url('../fonts/bender.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  background-image: url('https://i.imgur.com/z3rsDTU.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow: -moz-scrollbars-none;
+
+  font-family: 'bender', monospace;
+  color: white;
+}
+
+.siteLogo {
+  text-decoration: none;
+  color: white;
+}
+
+input {
+  font-family: 'bender', monospace;
+}
+
+.bodyFlex {
+  display: flex;
+  flex-flow: column;
+  min-height:100vh;
+}
+
+.headerWrapper {
+  position: sticky;
+  top: 0;
+  margin: 0;
+  z-index: 2;
+}
+
+.contentWrapper {
+  display: flex;
+  
+  flex: 1;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 35px;
+  z-index: 1;
+}
+
+.footerWrapper {
+  margin: 0;
+  z-index: 2;
+}
+
+/* Header and Navbar */
+
+header {
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+}
+
+#userStat {
+  padding: 0;
+}
+
+.headerDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 0;
+  max-height: 35px;
+  background-color: black;
+  z-index: 1;
+}
+
+.headerDiv h1 {
+  display: inline-block;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  font-family: 'bender', monospace;
+}
+
+.hamb-ico {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  margin: 5px;
+}
+
+.hamb-ico img {
+  max-width: 35px;
+  filter: invert(100%);
+}
+
+.headerDropdown {
+  z-index: -5;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  /* height: 55px; */
+  min-width: 150px;
+
+  padding: 10px;;
+
+  border-radius: 0px 0px 0px 10px;
+
+  top: -200px;
+  right: 0;
+  background-color: #0D0D0D;
+  transition: top 0.3s ease-in-out;
+}
+
+.headerDropdown a, .headerDropdown p {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  margin: 5px;
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+/* Footer */
+
+.footerDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: flex-end;
+  width: 100%;
+  user-select: none;
+  background-color: black;
+}
+
+.footerContent {
+  margin: 1%;
+}
+
+.footerContent p {
+  margin: 0;
+}
+
+.profileLinks {
+  display: flex;
+  flex-direction: row;
+}
+
+.profileLinks img {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  filter: invert(100%);
+}
+
+.profileLinks a {
+  width: 35px;
+  margin: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Media Query for Mobile Devices */
+
+@media (max-width: 768px) {
+
+  .headerBtns {
+    display: none;
+  }
+
+  .headerDropdown {
+    z-index: -5;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 55px;
+    width: 100%;
+    top: -200px;
+    background-color: #0D0D0D;
+    transition: top 0.3s ease-in-out;
+  }
+
+  .headerDropdown a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-size: 4vw;
+    transition: text-shadow 0.3s ease-in-out;
+  }
+
+  .headerDropdown a:hover {
+    text-shadow: 0.5px 0.5px 5px grey, -0.5px -0.5px 5px grey;
+  }
+  
+  .footerDiv {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footerContent * {
+    justify-content: center;
+    text-align: center;
+  }
+}

@@ -1,0 +1,57 @@
+@import url('main-components.css');
+
+.homeTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-shadow: 2px 2px 5px black;
+}
+
+.homeTitle h1 {
+  user-select: none;
+  font-size: 10vw;
+  margin: 0;
+  padding: 0;
+}
+
+.homeTitle p {
+  display: inline;
+}
+
+.blinkCursor {
+  text-shadow: 2px 2px 5px black;
+  animation: blinkCursor 0.8s linear infinite;
+  animation-play-state: paused;
+}
+
+@keyframes blinkCursor {
+  0% {
+    opacity: 01;
+  }
+
+  49% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  99% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.homeTitle h2 {
+  user-select: none;
+  font-size: 3vw;
+  margin: 0;
+  padding: 0;
+}

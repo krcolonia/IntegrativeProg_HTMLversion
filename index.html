@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/favicon.png">
+  <link rel="stylesheet" href="stylesheets/index.css" type="text/css" charset="utf-8" />
+  <title>Home Page | IPT</title>
+</head>
+
+<body onload="setTimeout(printHomeHeader(), 500)">
+
+  <script type="module" src="scripts/index.js"></script>
+  <script src="scripts/index_design.js"></script>
+
+  <div class="bodyFlex">
+    <div class="headerWrapper">
+      <header>
+        <div class="headerDiv">
+          <a href="index.html" class="siteLogo">
+            <h1>&lt;krC&gt;</h1>
+          </a>
+
+          <nav>
+            <button class="hamb-ico" onClick="dropDownFunc()"><img src="https://i.imgur.com/zz1orbo.png"></button>
+          </nav>
+        </div>
+
+        <nav>
+          <div class="headerDropdown">
+            <!-- Register and Login. Only show if no account logged in -->
+            <a href="register.html" id="register" class="button register">Register</a>
+            <a href="login.html" id="login" class="button login">Login</a>
+
+            <!-- Welcome MSG, View and Edit Profile, Logout. Only show if logged in -->
+            <p id="userStat"></p>
+            <a href="#" id="logout" class="button logout">Logout</a>
+          </div>
+        </nav>
+      </header>
+
+      <script src="scripts/header.js"></script>
+    </div>
+
+    <div class="contentWrapper">
+      <div class="homeTitle">
+        <h1>
+          <p id="headerContent"></p><span class="blinkCursor">|</span>
+        </h1>
+        <h2>User Account System</h2>
+      </div>
+    </div>
+
+    <div class="footerWrapper">
+      <footer>
+        <div class="footerDiv">
+          <div class="footerContent">
+            <div class="profileLinks">
+              <!-- <a href="https://github.com/krcolonia" target="_blank">
+          <img src="https://i.imgur.com/YPeacUb.png">
+        </a>
+        <a href="https://www.linkedin.com/in/krcolonia/" target="_blank">
+          <img src="https://i.imgur.com/AUaixxY.png">
+        </a>
+        <a href="mailto:kurtrobinperezcolonia@gmail.com">
+          <img src="https://i.imgur.com/XZkfDdk.png">
+        </a> -->
+            </div>
+            <p>&copy; COLONIA, Kurt Robin 2023</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+</body>
+
+</html>

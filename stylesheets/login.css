@@ -1,0 +1,69 @@
+@import url('main-components.css');
+
+.formContainer {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 215px;
+  width: 20%;
+  
+  padding: 20px;
+
+  background-color: rgba( 0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+
+  border-radius: 10px;
+
+  /* box-shadow: 0px 0px 20px 0px darkgray; */
+}
+
+.formContainer form {
+  display: flex;
+  flex-flow: column;
+  
+  justify-content: center;
+  align-items: center;
+}
+
+.inputContainer {
+  margin: 0;
+  padding: 0;
+}
+
+.inputContainer input {
+  margin-bottom: 10px;
+}
+
+.formContainer p, h2 {
+  color: white;
+}
+
+.inputContainer p {
+  margin: 0;
+}
+
+.formContainer #loginBtn {
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 5px;
+  color: white;
+
+  font-size: 1.2rem;
+
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 20px auto;
+}
+
+.registerRedirect * {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.registerRedirect a {
+  color: #FF9A00;
+}

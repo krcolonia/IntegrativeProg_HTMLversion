@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Register | IPT</title>
+</head>
+
+<link rel="stylesheet" href="stylesheets/register.css" />
+
+
+<body>
+
+  <div class="bodyFlex">
+    <div class="headerWrapper">
+      <header>
+        <div class="headerDiv">
+          <a href="index.html" class="siteLogo">
+            <h1>&lt;krC&gt;</h1>
+          </a>
+
+          <nav>
+            <button class="hamb-ico" onClick="dropDownFunc()"><img src="https://i.imgur.com/zz1orbo.png"></button>
+          </nav>
+        </div>
+
+        <nav>
+          <div class="headerDropdown">
+            <!-- Register and Login. Only show if no account logged in -->
+            <a href="register.html" id="register" class="button register">Register</a>
+            <a href="login.html" id="login" class="button login">Login</a>
+
+            <!-- Welcome MSG, View and Edit Profile, Logout. Only show if logged in -->
+            <p id="userStat"></p>
+            <a href="#" id="logout" class="button logout">Logout</a>
+          </div>
+        </nav>
+      </header>
+
+      <script src="scripts/header.js"></script>
+    </div>
+
+    <div class="contentWrapper">
+      <div class="formContainer">
+        <h1>Register Account</h1>
+        <form>
+
+          <div class="fullnameContainer">
+            <div class="inputContainer">
+              <p>First Name</p>
+              <input type="text" id="fname" title="First Name" placeholder="First Name" autocomplete="off"
+                required></input>
+            </div>
+            <div class="inputContainer">
+              <p>Last Name</p>
+              <input type="text" id="lname" title="Last Name" placeholder="Last Name" autocomplete="off"
+                required></input>
+            </div>
+          </div>
+
+          <div class="emailUsernameContainer">
+            <div class="inputContainer">
+              <p>Username</p>
+              <input type="text" id="username" title="Username" placeholder="Username" autocomplete="off"
+                required></input>
+            </div>
+
+            <div class="inputContainer">
+              <p>E-mail Address</p>
+              <input type="email" id="email" title="E-mail Address" placeholder="E-mail Address" autocomplete="off"
+                required></input>
+            </div>
+          </div>
+
+          <div class="passwordContainer">
+            <div class="inputContainer">
+              <p>Password</p>
+              <input type="password" id="password" title="Password" placeholder="Password" autocomplete="off"
+                required></input>
+            </div>
+            <div class="inputContainer">
+              <p>Confirm Password</p>
+              <input type="password" id="confirmPass" title="Password" placeholder="Confirm Password" autocomplete="off"
+                required></input>
+            </div>
+          </div>
+        </form>
+        <input type="submit" id="registerBtn" value="Register" />
+
+        <span class="loginRedirect">
+          <p>Already have an account?<br><a href="login.html">Login here!</a></p>
+        </span>
+
+      </div>
+    </div>
+
+    <div class="footerWrapper">
+      <footer>
+        <div class="footerDiv">
+          <div class="footerContent">
+            <div class="profileLinks">
+              <!-- <a href="https://github.com/krcolonia" target="_blank">
+                <img src="https://i.imgur.com/YPeacUb.png">
+              </a>
+              <a href="https://www.linkedin.com/in/krcolonia/" target="_blank">
+                <img src="https://i.imgur.com/AUaixxY.png">
+              </a>
+              <a href="mailto:kurtrobinperezcolonia@gmail.com">
+                <img src="https://i.imgur.com/XZkfDdk.png">
+              </a> -->
+            </div>
+            <p>&copy; COLONIA, Kurt Robin 2023</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+</body>
+
+<script type="module" src="scripts/register.js"></script>
+
+</html>
