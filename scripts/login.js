@@ -43,8 +43,8 @@ function login() {
         }
         else {
           update(ref(db, 'users/' + user.uid), {
-            is_verified: user.emailVerified,
-            last_login: Date.now()
+            e_isverified: user.emailVerified,
+            f_lastlogin: Date.now()
           })
 
           get(ref(db, 'users/' + user.uid)).then((snapshot) => {
