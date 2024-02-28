@@ -31,4 +31,13 @@ function confirmPassword(password, confirmPass) {
   }
 }
 
-export { validateEmail, validatePassword, confirmPassword }
+function checkImageInput(input) {
+  if(input.files.length == 0) {
+    return false
+  }
+  else {
+    return true
+  }
+}
+
+export { validateEmail, validatePassword, confirmPassword, checkImageInput }

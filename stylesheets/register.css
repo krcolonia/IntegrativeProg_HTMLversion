@@ -26,13 +26,14 @@
   align-items: center;
 }
 
-.fullnameContainer, .emailUsernameContainer, .passwordContainer {
+.fullnameContainer, .emailUsernameContainer, .passwordContainer, .pfpContainer {
   display: flex;
   flex-flow: row;
 
   margin: 0;
   padding: 0;
 }
+
 
 .fullnameContainer .inputContainer, .emailUsernameContainer .inputContainer, .passwordContainer .inputContainer {
   margin: 0;
@@ -55,6 +56,23 @@
 
 .inputContainer p {
   margin: 0;
+}
+
+.pfpContainer {
+  align-items: center;
+  justify-content: center;
+}
+
+.pfpContainer * {
+  margin: 5px;
+}
+
+#pfpPreview {
+  --imageSize: 80px;
+  width: var(--imageSize);
+  height: var(--imageSize);
+  border-radius: 50%;
+  border: 2px solid white;  
 }
 
 .formContainer #registerBtn {

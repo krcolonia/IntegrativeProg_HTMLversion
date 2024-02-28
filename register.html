@@ -19,7 +19,7 @@
           </a>
 
           <nav>
-            <button class="hamb-ico" onClick="dropDownFunc()"><img src="https://i.imgur.com/zz1orbo.png"></button>
+            <button class="hamb-ico" onClick="dropDownFunc()"><img id="menuIcon" src="https://i.imgur.com/zz1orbo.png"></button>
           </nav>
         </div>
 
@@ -83,6 +83,12 @@
                 required></input>
             </div>
           </div>
+
+          <div class="pfpContainer">
+            <img id="pfpPreview" alt="previewImage">
+            <input type="file" id="pfpUpload" class="pfpUpload" accept="image/png" required>
+          </div>
+
         </form>
         <input type="submit" id="registerBtn" value="Register" />
 

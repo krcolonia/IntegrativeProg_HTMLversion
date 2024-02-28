@@ -1,8 +1,10 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js'
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js'
 import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js'
+import { getStorage, ref as storeRef, getDownloadURL, uploadBytes } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-storage.js'
 
-import { validateEmail, validatePassword, confirmPassword } from './input-validation.js'
+
+import { validateEmail, validatePassword, confirmPassword, checkImageInput } from './input-validation.js'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -20,6 +22,29 @@ const app = initializeApp(firebaseConfig)
 
 const auth = getAuth(app)
 const db = getDatabase(app)
+const strg = getStorage(app, 'gs://integrativeprogramming-e73c9.appspot.com')
+
+let defaultImg = storeRef(strg, 'user-profile/default.png')
+let defaultImgURL = await getDownloadURL(defaultImg)
+
+const imagePreview = document.getElementById('pfpPreview')
+imagePreview.src = defaultImgURL
+
+const imageInput = document.getElementById('pfpUpload')
+var pfpUploadFile
+
+function previewPfpImage() {
+  if (imageInput.files && imageInput.files[0]) {
+    var reader = new FileReader()
+    reader.onload = function(e) {
+      imagePreview.src = e.target.result
+      pfpUploadFile = imageInput.files[0]
+    }
+    reader.readAsDataURL(imageInput.files[0])
+  }
+}
+
+imageInput.addEventListener('change', previewPfpImage)
 
 function register() {
   // Get all Input elements from HTML
@@ -42,6 +67,10 @@ function register() {
   }
   else if (confirmPassword(password, confirmPass) == false) {
     alert('Your passwords do not match!')
+    return
+  }
+  else if (checkImageInput(imageInput) == false) {
+    alert('Please choose an image for your profile picture!')
     return
   }
   else {
@@ -72,6 +101,15 @@ function register() {
           d_lname: lname,
           e_isverified: user.emailVerified,
           f_lastlogin: Date.now()
+        })
+
+        // Upload Profile image to Firebase
+
+        uploadBytes(storeRef(strg, 'user-profile/' + user.uid + '.png'), pfpUploadFile).then((snapshot) => {
+          console.log('Uploaded image')
+        },
+        (error) => {
+          console.log(error.code)
         })
 
         alert('User Created')

@@ -1,5 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js'
 import { getAuth } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js'
+import { getStorage, ref as storeRef, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-storage.js'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -13,7 +14,17 @@ const firebaseConfig = {
 }
 
 const app = initializeApp(firebaseConfig)
-const auth = getAuth(app)
+const strg = getStorage(app, 'gs://integrativeprogramming-e73c9.appspot.com')
 
 const uCredential = JSON.parse(sessionStorage.getItem('user-credentials'))
-const uInfo = JSON.parse(sessionStorage.getItem('user-info'))
+
+// Retrieves the profile picture of the current user
+let userImg = storeRef(strg, `user-profile/${uCredential.uid}.png`)
+let userImgURL = await getDownloadURL(userImg)
+
+// Replaces hamburger icon with profile picture
+const menuBtn = document.getElementById('menuIcon')
+menuBtn.src = userImgURL
+menuBtn.style.filter = 'none'
+menuBtn.style.border = '2px solid white'
+menuBtn.style.borderRadius = '50%'
