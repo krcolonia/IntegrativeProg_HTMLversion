@@ -1,7 +1,8 @@
-const userStatPC = document.getElementById('userStat')
-
 const regBtn = document.getElementById('register')
 const loginBtn = document.getElementById('login')
+
+const userStatPC = document.getElementById('userStat')
+const dashboard = document.getElementById('dashboard')
 const logoutBtn = document.getElementById('logout')
 
 const uCredential = JSON.parse(sessionStorage.getItem('user-credentials'))
@@ -10,18 +11,20 @@ const uInfo = JSON.parse(sessionStorage.getItem('user-info'))
 
 let checkCred = () => {
   if (!sessionStorage.getItem('user-credentials')) {
-    userStat.style.display = 'none'
-    logoutBtn.style.display = 'none'
     regBtn.style.display = 'auto'
     loginBtn.style.display = 'auto'
+    userStat.style.display = 'none'
+    dashboard.style.display = 'none'
+    logoutBtn.style.display = 'none'
   }
   else {
-    userStat.innerText = `Welcome back ${uInfo.b_username}`
+    userStat.innerText = `Welcome back, ${uInfo.b_username}!`
 
-    userStat.style.display = 'auto'
-    logoutBtn.style.display = 'auto'
     regBtn.style.display = 'none'
     loginBtn.style.display = 'none'
+    userStat.style.display = 'auto'
+    dashboard.style.display = 'auto'
+    logoutBtn.style.display = 'auto'
   }
 }
 

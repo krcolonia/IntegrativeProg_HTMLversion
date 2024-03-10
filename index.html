@@ -24,18 +24,20 @@
           </a>
 
           <nav>
-            <button class="hamb-ico" onClick="dropDownFunc()"><img id="menuIcon" src="https://i.imgur.com/zz1orbo.png"></button>
+            <button class="hamb-ico" onClick="dropDownFunc()" title="dropdown"><img id="menuIcon" src="https://i.imgur.com/zz1orbo.png" alt="HamburgerIcon"></button>
           </nav>
         </div>
 
+        
         <nav>
           <div class="headerDropdown">
             <!-- Register and Login. Only show if no account logged in -->
             <a href="register.html" id="register" class="button register">Register</a>
             <a href="login.html" id="login" class="button login">Login</a>
-
+            
             <!-- Welcome MSG, View and Edit Profile, Logout. Only show if logged in -->
             <p id="userStat"></p>
+            <a href="profile.html" id="dashboard" class="button profiledash">Account Dashboard</a>
             <a href="#" id="logout" class="button logout">Logout</a>
           </div>
         </nav>

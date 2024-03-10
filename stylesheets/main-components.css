@@ -100,6 +100,7 @@ header {
 
 .headerDiv h1 {
   display: inline-block;
+  -webkit-user-select: none;
   user-select: none;
   margin: 0;
   padding: 0;
@@ -155,6 +156,7 @@ header {
   justify-content: left;
   align-items: flex-end;
   width: 100%;
+  -webkit-user-select: none;
   user-select: none;
   background-color: black;
 }

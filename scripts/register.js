@@ -119,7 +119,7 @@ function register() {
         var errorCode = error.code
         var errorMessage = error.message
 
-        console.log("REGISTRATION ERROR: " + errorMessage)
+        console.log("REGISTRATION ERROR: " + errorCode)
       })
   }
 }

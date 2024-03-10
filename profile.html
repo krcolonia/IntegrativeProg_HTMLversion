@@ -3,18 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="stylesheets/register.css" />
   <link rel="icon" href="images/favicon.png">
-  <title>Login | IPT</title>
+  <link rel="stylesheet" href="stylesheets/profile.css">
+  <title>Profile Dashboard | IPT</title>
 </head>
 
-<link rel="stylesheet" href="stylesheets/login.css" />
-
-
 <body>
-
   <div class="bodyFlex">
     <div class="headerWrapper">
       <header>
@@ -24,7 +19,8 @@
           </a>
 
           <nav>
-            <button class="hamb-ico" onClick="dropDownFunc()" alt="menuButton"><img id="menuIcon" src="https://i.imgur.com/zz1orbo.png" alt="HamburgerIcon"></button>
+            <button class="hamb-ico" onClick="dropDownFunc()" title="menuButton"><img id="menuIcon"
+                src="https://i.imgur.com/zz1orbo.png" alt="HamburgerIcon"></button>
           </nav>
         </div>
 
@@ -47,28 +43,22 @@
 
     <div class="contentWrapper">
       <div class="formContainer">
-        <h1>Login Account</h1>
-        <form>
+        <h1>Account Dashboard</h1>
+        <div class="pfpContainer">
+          <p><i id="isVerified">isverified</i></p>
+          <img id="pfpPreview" class="pfpPreview" alt="previewImage">
+        </div>
 
-          <div class="inputContainer">
-            <p>E-mail Address</p>
-            <input type="text" id="email" title="E-mail Address" placeholder="E-mail Address" autocomplete="off"
-              required></input>
-          </div>
+        <div class="nameContainer">
+          <h2 id="profileName">FULL NAME</h2>
+          <h4 id="profileUsername">username</h4>
+          <p id="profileEmail">EMAIL ADDRESS</p>
+        </div>
 
-          <div class="inputContainer">
-            <p>Password</p>
-            <input type="password" id="password" title="Password" placeholder="Password" autocomplete="off"
-              required></input>
-          </div>
-
-        </form>
-        <input type="submit" id="loginBtn" value="Login">
-
-        <span class="registerRedirect">
-          <p>Don't have an account yet?<br><a href="register.html">Register Here!</a></p>
-        </span>
-
+        <div class="updateContainer">
+          <a href="updatepersonal.html" id="updatePersonInfo" class="update personal" title="updatePersonInfo">Update Personal Information</a>
+          <a href="updatepassword.html" id="updatePasword" class="update password" title="updatePassword">Update Password</a>
+        </div>
       </div>
     </div>
 
@@ -78,24 +68,24 @@
           <div class="footerContent">
             <div class="profileLinks">
               <!-- <a href="https://github.com/krcolonia" target="_blank">
-                <img src="https://i.imgur.com/YPeacUb.png">
+                <img src="https://i.imgur.com/YPeacUb.png" alt="githubIcon">
               </a>
               <a href="https://www.linkedin.com/in/krcolonia/" target="_blank">
-                <img src="https://i.imgur.com/AUaixxY.png">
+                <img src="https://i.imgur.com/AUaixxY.png" alt="linkedinIcon">
               </a>
               <a href="mailto:kurtrobinperezcolonia@gmail.com">
-                <img src="https://i.imgur.com/XZkfDdk.png">
+                <img src="https://i.imgur.com/XZkfDdk.png" alt="emailIcon">
               </a> -->
             </div>
             <p>&copy; COLONIA, Kurt Robin 2023</p>
+
           </div>
         </div>
       </footer>
     </div>
   </div>
-
 </body>
 
-<script type="module" src="scripts/login.js"></script>
+<script type="module" src="scripts/profile.js"></script>
 
 </html>

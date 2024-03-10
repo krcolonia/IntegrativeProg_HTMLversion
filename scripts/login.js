@@ -66,9 +66,15 @@ function login() {
       })
       .catch((error) => {
         var errorCode = error.code
-        var errorMessage = error.message
 
-        console.log("LOGIN ERROR: " + errorMessage)
+        console.log(errorCode)
+
+        if(errorCode == 'auth/invalid-credential'){
+          alert("Invalid credentials. Please check your E-mail/Password input");
+        }
+        else {
+          alert(`ERROR: ${errorCode}`)
+        }
       })
   }
 }

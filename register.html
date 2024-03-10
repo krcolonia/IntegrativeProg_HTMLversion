@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesheets/register.css" />
+  <link rel="icon" href="images/favicon.png">
   <title>Register | IPT</title>
 </head>
 
-<link rel="stylesheet" href="stylesheets/register.css" />
 
 
 <body>
@@ -19,7 +23,8 @@
           </a>
 
           <nav>
-            <button class="hamb-ico" onClick="dropDownFunc()"><img id="menuIcon" src="https://i.imgur.com/zz1orbo.png"></button>
+            <button class="hamb-ico" onClick="dropDownFunc()" title="menuButton"><img id="menuIcon"
+                src="https://i.imgur.com/zz1orbo.png" alt="HamburgerIcon"></button>
           </nav>
         </div>
 
@@ -31,6 +36,7 @@
 
             <!-- Welcome MSG, View and Edit Profile, Logout. Only show if logged in -->
             <p id="userStat"></p>
+            <a href="profile.html" id="dashboard" class="button profiledash">Account Dashboard</a>
             <a href="#" id="logout" class="button logout">Logout</a>
           </div>
         </nav>
@@ -44,49 +50,52 @@
         <h1>Register Account</h1>
         <form>
 
-          <div class="fullnameContainer">
+          <div class="container fullName">
             <div class="inputContainer">
-              <p>First Name</p>
+              <p>First Name <sup class="requiredIndicator">*</sup></span></p>
               <input type="text" id="fname" title="First Name" placeholder="First Name" autocomplete="off"
                 required></input>
             </div>
             <div class="inputContainer">
-              <p>Last Name</p>
+              <p>Last Name <sup class="requiredIndicator">*</sup></p>
               <input type="text" id="lname" title="Last Name" placeholder="Last Name" autocomplete="off"
                 required></input>
             </div>
           </div>
 
-          <div class="emailUsernameContainer">
+          <div class="container emailUsername">
             <div class="inputContainer">
-              <p>Username</p>
+              <p>Username <sup class="requiredIndicator">*</sup></p>
               <input type="text" id="username" title="Username" placeholder="Username" autocomplete="off"
                 required></input>
             </div>
 
             <div class="inputContainer">
-              <p>E-mail Address</p>
+              <p>E-mail Address <sup class="requiredIndicator">*</sup></p>
               <input type="email" id="email" title="E-mail Address" placeholder="E-mail Address" autocomplete="off"
                 required></input>
             </div>
           </div>
 
-          <div class="passwordContainer">
+          <div class="container password">
             <div class="inputContainer">
-              <p>Password</p>
+              <p>Password <sup class="requiredIndicator">*</sup></p>
               <input type="password" id="password" title="Password" placeholder="Password" autocomplete="off"
                 required></input>
             </div>
             <div class="inputContainer">
-              <p>Confirm Password</p>
+              <p>Confirm Password <sup class="requiredIndicator">*</sup></p>
               <input type="password" id="confirmPass" title="Password" placeholder="Confirm Password" autocomplete="off"
                 required></input>
             </div>
           </div>
 
-          <div class="pfpContainer">
+          <div class="container pfp">
             <img id="pfpPreview" alt="previewImage">
-            <input type="file" id="pfpUpload" class="pfpUpload" accept="image/png" required>
+            <div class="uploadContainer">
+              <label for="pfpUpload">Upload your Profile Photo<sup class="requiredIndicator">*</sup></label>
+              <input type="file" id="pfpUpload" class="pfpUpload" accept="image/png" required>
+            </div>
           </div>
 
         </form>

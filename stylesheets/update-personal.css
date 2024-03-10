@@ -35,7 +35,7 @@ sup {
 
 .container {
   display: flex;
-  flex-flow: row;
+  flex-flow: column;
 
   margin: 0;
   padding: 0;
@@ -61,7 +61,7 @@ sup {
 }
 
 .container.pfp {
-  margin-top: 15px;
+  margin-bottom: 15px;
   flex-flow: column;
 
   align-items: center;
@@ -69,7 +69,7 @@ sup {
 }
 
 #pfpPreview {
-  --imageSize: 80px;
+  --imageSize: 120px;
   width: var(--imageSize);
   height: var(--imageSize);
   border-radius: 50%;
@@ -87,13 +87,14 @@ sup {
   width: 75%;
 }
 
-#registerBtn {
+.inputContainer.saveCancel * {
   background-color: black;
   border: 2px solid white;
+  text-decoration: none;
   border-radius: 5px;
   color: white;
 
-  cursor: pointer;
+  cursor:pointer;
 
   font-size: 1.2rem;
 
@@ -103,17 +104,10 @@ sup {
   margin: 20px auto;
 }
 
-#registerBtn:active {
+.inputContainer.saveCancel *:active {
   background-color: white;
   border: 2px solid black;
   color: black;
-}
-
-.loginRedirect * {
-  margin: 0;
-  padding: 0;
-
-  text-align: center;
 }
 
 .loginRedirect a {
