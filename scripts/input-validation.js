@@ -1,3 +1,12 @@
+function validateInput(userInput) {
+  if(Boolean(userInput.trim()) == true) {
+    return true
+  }
+  else {
+    return false
+  }
+}
+
 function validateEmail(email) {
   const expression = /^[^@]+@\w+(\.\w+)+\w$/
 
@@ -40,4 +49,4 @@ function checkImageInput(input) {
   }
 }
 
-export { validateEmail, validatePassword, confirmPassword, checkImageInput }
+export { validateInput, validateEmail, validatePassword, confirmPassword, checkImageInput }

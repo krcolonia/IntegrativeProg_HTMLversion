@@ -4,7 +4,7 @@ import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/10.7.2
 import { getStorage, ref as storeRef, getDownloadURL, uploadBytes } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-storage.js'
 
 
-import { validateEmail, validatePassword, confirmPassword, checkImageInput } from './input-validation.js'
+import { validateInput, validateEmail, validatePassword, confirmPassword, checkImageInput } from './input-validation.js'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -57,30 +57,15 @@ function register() {
 
   // Validate Input Fields
 
-  if (fname.length <= 0) 
+  if (!validateInput(username) ||
+      !validateInput(fname) ||
+      !validateInput(lname) || !validateEmail(email) ||
+      !validatePassword(password) ||
+      !confirmPassword(password, confirmPass) ||
+      !checkImageInput(imageInput)) 
   {
-    // alert('')
-  }
-
-
-  if (validateEmail(email) == false) {
-    alert('The email you\'ve entered is invalid!')
-    return
-  }
-
-  if (validatePassword(password) == false) {
-    alert('Please enter a password greater than 6 characters')
-    return
-  }
-
-  if (confirmPassword(password, confirmPass) == false) {
-    alert('Your passwords do not match!')
-    return
-  }
-
-  if (checkImageInput(imageInput) == false) {
-    alert('Please choose an image for your profile picture!')
-    return
+     alert('Please fill in all required inputs denoted by an asterisk')
+     return
   }
 
   createUserWithEmailAndPassword(auth, email, password)
