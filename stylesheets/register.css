@@ -121,7 +121,12 @@ sup {
 }
 
 @media (max-width: 768px) {
-  .fullnameContainer, .emailUsernameContainer, .passwordContainer {
+
+  .formContainer {
+    width: 100%;
+  }
+
+  .container {
     flex-flow: column;
   }
 }

@@ -36,7 +36,7 @@ var pfpUploadFile
 function previewPfpImage() {
   if (imageInput.files && imageInput.files[0]) {
     var reader = new FileReader()
-    reader.onload = function(e) {
+    reader.onload = function (e) {
       imagePreview.src = e.target.result
       pfpUploadFile = imageInput.files[0]
     }
@@ -57,72 +57,80 @@ function register() {
 
   // Validate Input Fields
 
+  if (fname.length <= 0) 
+  {
+    // alert('')
+  }
+
+
   if (validateEmail(email) == false) {
     alert('The email you\'ve entered is invalid!')
     return
   }
-  else if (validatePassword(password) == false) {
+
+  if (validatePassword(password) == false) {
     alert('Please enter a password greater than 6 characters')
     return
   }
-  else if (confirmPassword(password, confirmPass) == false) {
+
+  if (confirmPassword(password, confirmPass) == false) {
     alert('Your passwords do not match!')
     return
   }
-  else if (checkImageInput(imageInput) == false) {
+
+  if (checkImageInput(imageInput) == false) {
     alert('Please choose an image for your profile picture!')
     return
   }
-  else {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
 
-        // Signs up account
-        const user = userCredential.user
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
 
-        // Sends verification to email used in registration
-        sendEmailVerification(user)
-          .then(() => {
-            alert('An email verification has been sent to ' + user.email)
-            window.location = 'login.html'
-          })
-          .catch((error) => {
-            var verifyErrCode = error.code
-            var verifyErrMsg = error.message
+      // Signs up account
+      const user = userCredential.user
 
-            console.log('VERIFICATION ERROR: ' + verifyErrMsg)
-          })
+      // Sends verification to email used in registration
+      sendEmailVerification(user)
+        .then(() => {
+          alert('An email verification has been sent to ' + user.email)
+          window.location = 'login.html'
+        })
+        .catch((error) => {
+          var verifyErrCode = error.code
 
-        // Add user info to firebase DB
-        set(ref(db, 'users/' + user.uid), {
-          a_email: email,
-          b_username: username,
-          c_fname: fname,
-          d_lname: lname,
-          e_isverified: user.emailVerified,
-          f_lastlogin: Date.now()
+          console.log('VERIFICATION ERROR: ' + verifyErrCode)
         })
 
-        // Upload Profile image to Firebase
+      // Add user info to firebase DB
+      set(ref(db, 'users/' + user.uid), {
+        a_email: email,
+        b_username: username,
+        c_fname: fname,
+        d_lname: lname,
+        e_isverified: user.emailVerified,
+        f_lastlogin: Date.now()
+      })
 
-        uploadBytes(storeRef(strg, 'user-profile/' + user.uid + '.png'), pfpUploadFile).then((snapshot) => {
-          console.log('Uploaded image')
-        },
+      // Upload Profile image to Firebase
+
+      uploadBytes(storeRef(strg, 'user-profile/' + user.uid + '.png'), pfpUploadFile).then((snapshot) => {
+        console.log('Uploaded image')
+      },
         (error) => {
           console.log(error.code)
         })
 
-        alert('User Created')
+      alert('User Created')
 
-      })
-      .catch((error) => {
-        var errorCode = error.code
-        var errorMessage = error.message
+    })
+    .catch((error) => {
+      var errorCode = error.code
+      var errorMessage = error.message
 
-        console.log("REGISTRATION ERROR: " + errorCode)
-      })
-  }
+      console.log(errorCode)
+    })
 }
+
 
 const registerBtn = document.getElementById('registerBtn')
 
