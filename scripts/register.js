@@ -1,28 +1,10 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js'
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js'
-import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js'
-import { getStorage, ref as storeRef, getDownloadURL, uploadBytes } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-storage.js'
-
+import { auth, db, strg } from './FirebaseInit.js'
+import { createUserWithEmailAndPassword, sendEmailVerification } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js'
+import { ref, set } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js'
+import { ref as storeRef, getDownloadURL, uploadBytes } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-storage.js'
 
 import { validateInput, validateEmail, validatePassword, confirmPassword, checkImageInput } from './input-validation.js'
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyB_0O36aBkj5rDA7F33hcAWcKzD2WvD4pI",
-  authDomain: "integrativeprogramming-e73c9.firebaseapp.com",
-  databaseURL: "https://integrativeprogramming-e73c9-default-rtdb.firebaseio.com",
-  projectId: "integrativeprogramming-e73c9",
-  storageBucket: "integrativeprogramming-e73c9.appspot.com",
-  messagingSenderId: "895225183464",
-  appId: "1:895225183464:web:a70b1d21cb4cf96ae11d5d"
-}
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig)
-
-const auth = getAuth(app)
-const db = getDatabase(app)
-const strg = getStorage(app, 'gs://integrativeprogramming-e73c9.appspot.com')
 
 let defaultImg = storeRef(strg, 'user-profile/default.png')
 let defaultImgURL = await getDownloadURL(defaultImg)
