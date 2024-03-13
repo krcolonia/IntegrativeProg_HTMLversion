@@ -1,5 +1,6 @@
-import { auth } from './FirebaseInit.js'
+import { auth, strg } from './FirebaseInit.js'
 import { updatePassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js'
+import { ref as storeRef, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-storage.js'
 
 import { validatePassword, confirmPassword } from './input-validation.js'
 
@@ -7,6 +8,18 @@ if (!sessionStorage.getItem('user-credentials') && !sessionStorage.getItem('user
   window.location.href = './index.html'
 }
 else {
+
+  // Sets the default profile pic from Firebase Storage
+  let userImg = storeRef(strg, `user-profile/${uCredential.uid}.png`)
+  let userImgURL = await getDownloadURL(userImg)
+  
+  // Replaces hamburger icon with profile picture
+  const menuBtn = document.getElementById('menuIcon')
+  menuBtn.src = userImgURL
+  menuBtn.style.filter = 'none'
+  menuBtn.style.border = '2px solid white'
+  menuBtn.style.borderRadius = '50%'
+
   const pass = document.getElementById('pass')
   const confirmPass = document.getElementById('confirmPass')
   const saveChange = document.getElementById('saveChangeBtn')
@@ -23,12 +36,17 @@ else {
           return
         }
         else {
-          updatePassword(user, pass.value).then(() => {
-            alert('Your password has been updated successfully!')
-            window.location = 'profile.html'
-          }).catch((error) => {
-            console.log(error.code)
-          })
+          if(confirm('Are you sure you want to change your password?')) {
+            updatePassword(user, pass.value).then(() => {
+              alert('Your password has been updated successfully!')
+              window.location = 'profile.html'
+            }).catch((error) => {
+              console.log(error.code)
+            })
+          }
+          else {
+            alert('Password change cancelled.')
+          }
         }
       }
       else {
